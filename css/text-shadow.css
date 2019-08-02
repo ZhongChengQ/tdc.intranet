@@ -1,0 +1,30 @@
+/*	文字陰影normal	*/
+.text-shadow {
+	text-shadow: black .1em .1em .2em;
+}
+
+/*	文字邊框陰影	*/
+.text-shadow-plus {
+	text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black;
+}
+
+/*	內嵌陰影效果	*/
+.text-shadow-inset {
+	text-shadow: 1px 1px white, 1px 1px #444;
+}
+
+/*	多重分身陰影效果	*/
+.text-shadow-multiple {
+	text-shadow: -.4em .3em #CED7D4, .9em -.2em #3D313F;
+}
+
+/*	霓虹陰影效果 重複陰影可加深	*/
+.text-shadow-neon {
+	text-shadow: 0 0 0.2em #8F7, 0 0 0.2em #fff;
+}
+
+/*	近距向下沉重陰影	*/
+.text-shadow-close {
+	text-shadow: 0px 6px 2px rgba(0,0,0,0.7), 0px 14px 12px rgba(0,0,0,0.4), 0px 22px 20px rgba(0,0,0,0.1);
+}

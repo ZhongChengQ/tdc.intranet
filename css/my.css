@@ -1,0 +1,94 @@
+.container {
+  border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
+}
+
+.card {
+	border-radius: .5em;
+}
+
+.body-style-1 {
+  height: 100vh;
+	background-image: linear-gradient( 135deg, #A6C2CE, #9C8F96, #EBC57C, #6B799E);
+	background-size: 300%;
+	animation: bglinear 15s infinite;
+}
+
+@keyframes bglinear {
+	from {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 100%;
+	}
+	to {
+		background-position: 0% 50%;
+	}
+}
+
+/*加一層半透明div蓋住body bgimage
+.body-style-2 {
+  height: 100vh;
+  background-image: url(../images/adult-blur-close-up-239509.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.glass {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;bottom: 0;left: 0;right: 0;
+  background: rgba(255,255,255,.1);
+}*/
+
+/*偽類+blur模糊*/
+.body-style-2 {
+  height: 100vh;
+}
+.body-style-2:before {
+  background-image: url(../images/adult-blur-close-up-239509.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;left: 0;right: 0;bottom: 0;
+  z-index: -1;
+  filter: blur(1px);
+}
+
+.text-logo {
+	color: #023459;
+}
+
+.font-mb {
+  font-family: 微軟正黑體;
+  font-weight: 400;
+}
+
+/*---------R-------W-------D-----------*/
+@media screen and (max-width: 500px){
+  .mobile-ds
+  {
+    display: block;
+    line-height: 5rem;
+  }
+  .computer-ds
+  {
+  	display: none;
+  }  
+}
+
+@media screen and (min-width: 501px){
+  .mobile-ds
+  {
+    display: none;
+  }
+  .computer-ds
+  {
+  	display: block;
+  	line-height: 5rem;
+  }
+}
