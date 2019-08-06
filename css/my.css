@@ -8,7 +8,6 @@
 }
 
 .body-style-1 {
-  height: 100vh;
 	background-image: linear-gradient( 135deg, #A6C2CE, #9C8F96, #EBC57C, #6B799E);
 	background-size: 300%;
 	animation: bglinear 15s infinite;
@@ -91,4 +90,8 @@
   	display: block;
   	line-height: 5rem;
   }
+}
+
+.opacity-white-8 {
+  background-color: rgba(255,255,255,.8);
 }

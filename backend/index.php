@@ -13,6 +13,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="../css/my.css">
@@ -65,9 +66,9 @@
 			</div>	
 		</div>
 	</div>
-	<div class="container bg-light mt-2 h-75">
-		<div class="row h-100">
-			<section class="col-3 py-3 border-right" style="padding: 0;">
+	<div class="container mt-2 h-75 opacity-white-8">
+		<div class="row">
+			<section class="col col-xl-3 py-3 border-right" style="padding: 0;">
 				<h5 class="font-mb text-center border-bottom pb-2" style="margin: 0;">會員審核清單</h5>
 				<table class="table table-striped table-hover">
 					<thead>
@@ -75,6 +76,7 @@
 							<th scope="col">#</th>
 							<th scope="col">姓名</th>
 							<th scope="col">帳號</th>
+							<th><img src="../images/right-arrow.png" alt="go-e_id_page"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -84,12 +86,34 @@
 					</tbody>
 				</table>
 			</section>
-			<section class="col py-3 text-center">
+			<section class="col col-xl-9 py-3">
 				<h5 class="font-mb text-center border-bottom pb-2" style="margin: 0;">會員詳細資料</h5>
-				<article class="container border-top h-75" style="background: #ccc;">
-					
+				<article class="border-top" style="background: #ccc;">
+					<table class="table table-sm">
+						<thead class="thead-dark">
+							<tr>
+								<th colspan="2">#註冊</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+								<?php include 'member-detail-check.php'; ?>
+							
+						</tbody>
+					</table>
 				</article>
-
+				<div class="row justify-content-center">
+					<div class="col-auto">
+						<form onsubmit="regisDelete()">
+							<button type="submit" class="btn btn-danger">取消資格</button>
+						</form>
+					</div>
+					<div class="col-auto">
+						<form onsubmit="regisAdd()">
+							<button type="submit" class="btn btn-success">新增會員</button>
+						</form>
+					</div>
+				</div>
 			</section>
 		</div>
 	
@@ -100,5 +124,27 @@
 		require 'footer.html';
 
 	 ?>
+
+	<script type="text/javascript">
+
+		function regisDelete() {
+			var delConfirm = confirm("確定刪除?");
+			if ( delConfirm == true ) {
+				alert("刪除成功");
+			} else {
+				alert("請注意使用");
+			}
+		}
+
+		function regisAdd() {
+			var addConfirm = confirm("確定新增?\n新增前注意員工申請驗證碼是否正確");
+			if ( addConfirm == true ) {
+				alert("新增成功");
+			} else {
+				alert("請仔細確認");
+			}
+		}
+
+	</script>
 </body>
 </html>

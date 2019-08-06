@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/my.css">
     <link rel="stylesheet" href="css/text-shadow.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<title>TDC inc.</title>
 </head>
 <body class="body-style-1">
@@ -76,12 +77,8 @@
 				<div class="jumbotron mt-3">
 					<h1 class="display-4">TDC . intranet</h1>
 					<hr class="my-3">
-					<p>
-						<b>通晟機械工業有限公司</b>
-						成立於民國86年,<br>
-						<b>大通精工科技有限公司</b>
-						成立於民國99年,<br>
-						本著提供良好的品質及專業的態度，給予客戶最好的產品，秉持著穩健發展、追求企業永續經營及成長為理念，我們重視每一位員工，除了有良好工作環境、也提供學習及成長的空間，歡迎優秀的朋友一起加入我們的工作行列。
+					<p class="text-warning">
+						廣告輪播尚未設定
 					</p>
 				</div>
 			</div>
@@ -89,13 +86,13 @@
 		<!-- main block-->
 		<div class="row justify-content-around pb-3">
 			<!-- 註冊 -->
-			<div class="col-xl-4 col-md-5">
+			<div class="col-xl-7 col-lg-8 col-md-10" id="regis_area" style="display: none;">
 				<div class="card shadow-sm">
 					<div class="card-header bg-primary text-white text-center py-2">
-						<h3 class="text-shadow">Signup</h3>
+						<h3 class="text-shadow">註冊 Signup</h3>
 					</div>
 					<div class="card-body">
-						<form action="includes/signup.inc.php" method="post" class="text-center">
+						<form action="includes/signup.inc.php" method="post">
 
 							<?php 
 								if( isset($_GET['error']) ){
@@ -121,18 +118,41 @@
 
 							<div class="form-row">
 								<div class="col-6">
-									<input type="text" name="UAcc" placeholder="User Account" autocomplete="off" class="form-control mb-3">
+									<span>帳號</span>
+									<input type="text" name="UAcc" placeholder="Account" autocomplete="off" class="d-inline form-control mb-3">
 								</div>
 								<div class="col-6">
-									<input type="password" name="UPass" placeholder="User Pass" class="form-control mb-3">
+									<span>密碼</span>
+									<input type="password" name="UPass" placeholder="Password" class="d-inline form-control mb-3">
 								</div>
 								<div class="col-6">
-									<input type="text" name="UName" placeholder="User Name" autocomplete="off" class="form-control mb-3">
+									<span>姓名</span>
+									<input type="text" name="UName" placeholder="限中文" autocomplete="off" class="d-inline form-control mb-3">
 								</div>
 								<div class="col-6">
-									<input type="text" name="UPassCheck" placeholder="Pass Check" class="form-control mb-3">
+									<span>密碼確認</span>
+									<input type="text" name="UPassCheck" placeholder="再次確認密碼無誤" class="d-inline form-control mb-3">
 								</div>
-								<input type="email" name="UEmail" placeholder="EMail" autocomplete="off" class="form-control mb-3">
+								<div class="col-6">
+									<span>性別</span>
+									<input type="text" name="gender" placeholder="gender" class="d-inline form-control mb-3">
+								</div>
+								<div class="col-6">
+									<span>身分證字號</span>
+									<input type="text" name="idNumber" placeholder="identity" class="d-inline form-control mb-3">
+								</div>
+								<div class="col-6">
+									<span>家庭</span>
+									<input type="text" name="family" placeholder="family" class="d-inline form-control mb-3">
+								</div>
+								<div class="col-10">
+									<span>信箱</span>
+									<input type="email" name="UEmail" placeholder="example@gmail.com" autocomplete="off" class="d-inline form-control mb-3">
+								</div>
+								<div class="col-10">
+									<span>地址</span>
+									<input type="email" name="UAddress" placeholder="address" autocomplete="off" class="d-inline form-control mb-3">
+								</div>
 							</div>
 							<button type="submit" class="btn btn-success" name="Signup">Signup</button>
 							<button class="btn btn-secondary" type="reset">Reset</button>
@@ -141,10 +161,10 @@
 				</div>
 			</div>
 			<!-- 登入 -->
-			<div class="col-xl-4 col-md-5">
+			<div class="col-xl-5 col-lg-6 col-md-8" id="login_area">
 				<div class="card shadow-sm">
 					<div class="card-header bg-primary text-white text-center py-2">
-						<h3 class="text-shadow">Login</h3>
+						<h3 class="text-shadow">登入 Login</h3>
 					</div>
 					<div class="card-body">
 						<form action="includes/login.simple.php" method="post" class="text-center">
@@ -168,10 +188,10 @@
 
 							<div class="form-row">
 								<div class="col-12">
-									<input type="text" name="UAcc" placeholder="User Account/Email" class="form-control mb-3">
+									<input type="text" name="UAcc" placeholder="帳號or信箱" class="form-control mb-3">
 								</div>
 								<div class="col-12">
-									<input type="password" name="UPass" placeholder="User Pass" class="form-control mb-3">
+									<input type="password" name="UPass" placeholder="密碼" class="form-control mb-3">
 								</div>
 							</div>
 							<?php 
@@ -181,13 +201,13 @@
 									<button type='reset' class='btn btn-outline-secondary' disabled>Reset</button>
 									</div>";
 								} else {
-									echo "<div class='btn-group'>
+									echo "<div class='btn-group' id='loginButtonGroup'>
 									<button type='submit' name='Login' class='btn btn-outline-success'>Login</button>
 									<button type='reset' class='btn btn-outline-secondary'>Reset</button>
 									</div>
-									<a href='resetpwd.php'><small>忘記密碼?</small></a>";
+									<a href='resetpwd.php'><small>忘記密碼?</small></a>
+									<a href='gotoopenregispage' id='regis_area_show'><small>尚未註冊?</small></a>";
 								}
-								
 							 ?>
 						</form>
 					</div>
@@ -200,5 +220,14 @@
 		require 'footer.html';
 
 	 ?>
+	<script>
+		$(document).ready(function() {
+			$('#regis_area_show').click(function(e) {
+				e.preventDefault();
+				$('#regis_area').show(1000);
+				$('#login_area').hide();
+			});
+		})
+	</script>
 </body>
 </html>

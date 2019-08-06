@@ -11,9 +11,9 @@
 			}
 			echo "<tr><th scope='row'>".$row['e_id']."</th><td>".$row['name']."</td><td>".$row['account']."</td><td>";
 			if ( $row['gender'] == 1 ) {
-				echo "<a href='#'><img src='../images/man.png'></a>";
+				echo "<a href='index.php?e_id_page=".$row['e_id']."'><img src='../images/man.png'></a>";
 			}else {
-				echo "<a href='#'><img src='../images/girl.png'></a>";
+				echo "<a href='index.php?e_id_page=".$row['e_id']."'><img src='../images/girl.png'></a>";
 			}
 			echo "</td></tr>";
 		}
